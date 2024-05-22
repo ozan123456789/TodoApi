@@ -11,7 +11,7 @@ This is a Todo application that features:
 It showcases:
 - Blazor WebAssembly
 - Minimal APIs
-- Using EntityFramework and SQLite for data access
+- ~~Using EntityFramework and SQLite for data access~~ (Updated to MSSQL server)
 - OpenAPI
 - User management with ASP.NET Core Identity
 - Cookie authentication
@@ -23,12 +23,12 @@ It showcases:
 ## Prerequisites
 
 ### .NET
-1. [Install .NET 7](https://dotnet.microsoft.com/en-us/download)
-
+1. ~~[Install .NET 7](https://dotnet.microsoft.com/en-us/download)~~
+   This project updated to .Net 8
 ### Database
 1. Install the **dotnet-ef** tool: `dotnet tool install dotnet-ef -g`
-1. Navigate to the `TodoApi` folder.
-    1. Run `mkdir .db` to create the local database folder.
+1. ~~Navigate to the `TodoApi` folder.~~
+    1. ~~Run `mkdir .db` to create the local database folder.~~ Update the connecting string
     1. Run `dotnet ef database update` to create the database.
 1. Learn more about [dotnet-ef](https://learn.microsoft.com/en-us/ef/core/cli/dotnet)
 

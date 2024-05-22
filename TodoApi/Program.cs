@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Configure auth
@@ -7,9 +9,14 @@ builder.Services.AddAuthorizationBuilder().AddCurrentUserHandler();
 // Add the service to generate JWT tokens
 builder.Services.AddTokenService();
 
-// Configure the database
-var connectionString = builder.Configuration.GetConnectionString("Todos") ?? "Data Source=.db/Todos.db";
-builder.Services.AddSqlite<TodoDbContext>(connectionString);
+// Configure the database sqlite
+//var connectionString = builder.Configuration.GetConnectionString("Todos") ?? "Data Source=.db/Todos.db";
+//builder.Services.AddSqlite<TodoDbContext>(connectionString);
+
+//Configure the database sqlserver
+builder.Services.AddDbContext<TodoDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
 // Configure identity
 builder.Services.AddIdentityCore<TodoUser>()
